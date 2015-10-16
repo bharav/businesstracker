@@ -1,30 +1,53 @@
 angular.module('businesstracker.controllers', [])
 
-.controller('NewOrderCtrl', function($scope) {
+  .controller('NewOrderCtrl', function ($scope) {
     
-})
+    var data;
+    $scope.productListConsolidate = [];
+    $scope.AddProduct = function () {
+      var productlist = {
+        productname: $scope.product.name,
+        productUnit: $scope.product.unit,
+        productUnitCost: $scope.product.unitprice
+      };
+      $scope.productListConsolidate.push(productlist);
+      $scope.product.name = '';
+      $scope.product.unit = '';
+      $scope.product.unitprice = '';
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+      $scope.getOrderTotalAmount = function () {
+        var total = 0;
+        for (var i = 0; i < $scope.productListConsolidate.length; i++) {
+          var product = $scope.productListConsolidate[i];
+          total += (product.productUnitCost * product.productUnit);
+        }
+        return total;
+      }
+      console.log(productlist);
+      console.log($scope.productListConsolidate);
+    }
+  })
 
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
-})
+  .controller('ChatsCtrl', function ($scope, Chats) {
+    // With the new view caching in Ionic, Controllers are only called
+    // To listen for when this page is active (for example, to refresh data),
+    // listen for the $ionicView.enter event:
+    //
+    //$scope.$on('$ionicView.enter', function(e) {
+    //});
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
+    $scope.chats = Chats.all();
+    $scope.remove = function (chat) {
+      Chats.remove(chat);
+    };
+  })
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
-});
+  .controller('ChatDetailCtrl', function ($scope, $stateParams, Chats) {
+    $scope.chat = Chats.get($stateParams.chatId);
+  })
+
+  .controller('AccountCtrl', function ($scope) {
+    $scope.settings = {
+      enableFriends: true
+    };
+  });

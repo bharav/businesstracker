@@ -64,7 +64,8 @@ angular.module('businesstracker', ['ionic', 'businesstracker.controllers'])
     url: '/new-order',
     views: {
       'menuContent': {
-        templateUrl: 'templates/order-new.html'
+        templateUrl: 'templates/order-new.html',
+        controller:'NewOrderCtrl'
       }
     }
   })
@@ -72,7 +73,8 @@ angular.module('businesstracker', ['ionic', 'businesstracker.controllers'])
     url: '/no-productdeatil',
     views: {
       'menuContent': {
-        templateUrl: 'templates/order-productdetail.html'
+        templateUrl: 'templates/order-productdetail.html',
+        controller:'NewOrderCtrl'
       }
     }
   })
@@ -81,7 +83,7 @@ angular.module('businesstracker', ['ionic', 'businesstracker.controllers'])
     views: {
       'menuContent': {
         templateUrl: 'templates/order-payment.html',
-        Controller:'NewOrderCtrl'
+        controller:'NewOrderCtrl'
       }
     }
   })
