@@ -1,65 +1,65 @@
-<ion-view view-title="Payment Details">
+<ion-view view-title="Payment Details" ng-controller="NewOrderCtrl as payment">
   <ion-content class="padding">
-    <div class="item">
-      Payment Done
-      <label class="toggle toggle-assertive">
-        <input type="checkbox" ng-model="payment.status">
-        <div class="track">
-          <div class="handle"></div>
-        </div>
-      </label>
-    </div>
-    </label>
-    <div ng-show="payment.status">
-      <label class="item item-input item-select">
-        <div class="input-label">
-          Payment Mode
-        </div>
-        <select ng-model="payment.type">
-          <option ng-option value="Cash">Cash</option>
-          <option ng-option value="NetBanking">Net Banking</option>
-          <option ng-option value="Wallet">Wallet</option>
-        </select>
-      </label>
-      <div class="list" ng-if="payment.type == 'Cash'">
-        <label class="item item-input">
-          <textarea placeholder="Comment"></textarea>
+      <div class="item">
+        Payment Done
+        <label class="toggle toggle-assertive">
+          <input type="checkbox" ng-model="payment.status" ng-init="payment.status=false">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
         </label>
       </div>
-      <div ng-if="payment.type == 'NetBanking'">
+      </label>
+      <div ng-show="payment.status" >
         <label class="item item-input item-select">
           <div class="input-label">
-            Bank Name
+            Payment Mode
           </div>
-          <select>
-            <option>IDBI</option>
-            <option selected>ICICI</option>
+          <select ng-model="payment.type" >
+            <option ng-option value="Cash">Cash</option>
+            <option ng-option value="NetBanking">Net Banking</option>
+            <option ng-option value="Wallet">Wallet</option>
           </select>
         </label>
+        <div class="list" ng-if="payment.type == 'Cash'">
+          <label class="item item-input">
+            <textarea placeholder="Comment" ng-model="payment.cashcomment "></textarea>
+          </label>
+        </div>
+        <div ng-if="payment.type == 'NetBanking'">
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Bank Name
+            </div>
+            <select ng-model="payment.bank">
+              <option ng-option value="IDBI">IDBI</option>
+              <option ng-option value="ICICI" selected>ICICI</option>
+            </select>
+          </label>
+          <label class="item item-input">
+            <textarea placeholder="Transaction Comment" ng-model="payment.bankcomment"></textarea>
+          </label>
+        </div>
+        <div ng-if="payment.type == 'Wallet'">
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Wallet Name
+            </div>
+            <select ng-model="payment.wallet">
+              <option ng-option value="PayTM">PayTM</option>
+              <option ng-option value="PayU" selected>PayU</option>
+            </select>
+          </label>
+          <label class="item item-input">
+            <textarea placeholder="Transaction Comment" ng-model="payment.walletcomment"></textarea>
+          </label>
+        </div>
+      </div>
+      <div ng-hide="payment.status">
         <label class="item item-input">
-          <textarea placeholder="Transaction Comment"></textarea>
+          <textarea placeholder="Description" ng-model="payment.nopaymentdesc" ng-init="payment.nopaymentdesc=''"></textarea>
         </label>
       </div>
-      <div ng-if="payment.type == 'Wallet'">
-        <label class="item item-input item-select">
-          <div class="input-label">
-            Wallet Name
-          </div>
-          <select>
-            <option>PayTM</option>
-            <option selected>PayU</option>
-          </select>
-        </label>
-        <label class="item item-input">
-          <textarea placeholder="Transaction Comment"></textarea>
-        </label>
-      </div>
-    </div>
-    <div ng-hide="payment.status">
-      <label class="item item-input">
-        <textarea placeholder="Description"></textarea>
-      </label>
-    </div>
-    <a class="button button-block button-positive" href="#">Submit</a>
-  </ion-content>
+      <button class="button button-block button-positive" ng-click="SubmitOrder()">Submit</button>
+    </ion-content>
 </ion-view>

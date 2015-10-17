@@ -1,9 +1,19 @@
 angular.module('businesstracker.controllers', [])
 
-  .controller('NewOrderCtrl', function ($scope) {
-    
+  .controller('NewOrderCtrl', function ($scope, $state, Orders) {
+
     var data;
     $scope.productListConsolidate = [];
+    $scope.GoToProduct = function () {
+      var customer = {
+        customername: $scope.customer.name,
+        customeraddress: $scope.customer.address,
+        customerphone: $scope.customer.phone,
+        customeremail: $scope.customer.email
+      }
+      Orders.setCustomer(customer);
+      $state.go("app.no-productdeatil");
+    }
     $scope.AddProduct = function () {
       var productlist = {
         productname: $scope.product.name,
@@ -25,6 +35,37 @@ angular.module('businesstracker.controllers', [])
       }
       console.log(productlist);
       console.log($scope.productListConsolidate);
+    }
+    $scope.GoToPayment = function () {
+      Orders.setOrderProduct($scope.productListConsolidate);
+      $state.go("app.new-order-payment");
+    }
+    $scope.SubmitOrder = function () {
+      var orderpayment = {};
+
+      if (!$scope.payment.status || $scope.payment.status === 'undefined') {
+        orderpayment.paymentstatus = false;
+        orderpayment.nopaymentdesc = $scope.payment.nopaymentdesc;
+      }
+      else {
+        orderpayment.paymentstatus = true;
+        if ($scope.payment.type == 'Cash') {
+          orderpayment.paymenttype = $scope.payment.type;
+          orderpayment.cashpaymentdesc = $scope.payment.cashcomment;
+        }
+        else if ($scope.payment.type == "NetBanking") {
+          orderpayment.paymenttype = $scope.payment.type;
+          orderpayment.paymentbank = $scope.payment.bank;
+          orderpayment.paymentnbcomment = $scope.payment.bankcomment;
+        }
+        else if ($scope.payment.type == "Wallet") {
+
+          orderpayment.paymenttype = $scope.payment.type;
+          orderpayment.paymentwallet = $scope.payment.wallet;
+          orderpayment.paymentwcomment = $scope.payment.walletcomment;
+        }
+      }
+      console.log(orderpayment);
     }
   })
 

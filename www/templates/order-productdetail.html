@@ -1,34 +1,39 @@
-<ion-view view-title="Product Details">
+<ion-view view-title="Product Details" ng-controller="NewOrderCtrl as product">
 	<ion-content class="padding">
 		<div class="list">
 			<label class="item item-input">
-				<input type="text" placeholder="Name" ng-model="neworder.productname">
+				<input type="text" placeholder="Name" ng-model="product.name">
 			</label>
 			<label class="item item-input">
-				<input type="text" placeholder="Quantity" ng-model="neworder.productunit">
+				<input type="text" placeholder="Quantity" ng-model="product.unit">
 			</label>
 			<label class="item item-input">
-				<input type="text" placeholder="Cost" ng-model="neworder.productunitprice">
+				<input type="text" placeholder="Cost" ng-model="product.unitprice">
 			</label>
 		</div>
 		<a class="button button-calm" ng-click="AddProduct()">Add</a>
 		<div class="row">
-				<div class="col"><h5>Item Name</h5></div>
-				<div class="col"><h5>Item Quantity</h5></div>
-				<div class="col"><h5>Item Cost</h5></div>
+			<div class="col">
+				<h5>Item Name</h5></div>
+			<div class="col">
+				<h5>Item Quantity</h5></div>
+			<div class="col">
+				<h5>Item Cost</h5></div>
 		</div>
 		<div class="row" ng-repeat="product in productListConsolidate">
 			<div class="col">{{product.productname}}</div>
-				<div class="col">{{product.productUnit}}</div>
-				<div class="col">{{product.productUnitCost}}</div>
+			<div class="col">{{product.productUnit}}</div>
+			<div class="col">{{product.productUnitCost}}</div>
+		</div>
+		<div class="list card">
+			<div class="row">
+				<div class="col col-70">
+					<h5>Total Amount</h5></div>
+				<div class="col">
+					<h5>{{getOrderTotalAmount()}}</h5></div>
 			</div>
-	<div class="list card">		
-		<div class="row">
-			<div class="col col-70"><h5>Total Amount</h5></div>
-			<div class="col"><h5>{{getOrderTotalAmount()}}</h5></div>	
-		</div>	
-	</div>	
-		
-		<a class="button button-calm ionic-right" href="#/app/new-order-payment">Next</a>
+		</div>
+
+		<button class="button button-calm ionic-right" ng-click="GoToPayment()">Next</button>
 	</ion-content>
 </ion-view>
