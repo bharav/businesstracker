@@ -50,7 +50,8 @@ angular.module('businesstracker', ['ionic','businesstracker.controllers','busine
     url: '/purchase',
     views: {
       'dash-purchase': {
-        templateUrl: 'templates/purchase-dash.html'
+        templateUrl: 'templates/purchase-dash.html',
+        controller:'OrderDashCtrl'
       }
     }
   })

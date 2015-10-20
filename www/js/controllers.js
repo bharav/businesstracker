@@ -83,8 +83,10 @@ angular.module('businesstracker.controllers', [])
     };
   })
 
-  .controller('ChatDetailCtrl', function ($scope, $stateParams, Chats) {
-    $scope.chat = Chats.get($stateParams.chatId);
+  .controller('OrderDashCtrl', function ($scope, Orders) {
+    Orders.getOrders().then(function(data){
+      console.log(data);
+    });
   })
 
   .controller('AccountCtrl', function ($scope) {
