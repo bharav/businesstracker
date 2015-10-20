@@ -86,6 +86,7 @@ angular.module('businesstracker.controllers', [])
   .controller('OrderDashCtrl', function ($scope, Orders) {
     Orders.getOrders().then(function(data){
       console.log(data);
+      $scope.orders=data;
     });
   })
 

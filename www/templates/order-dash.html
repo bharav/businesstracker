@@ -1,11 +1,11 @@
-<ion-view view-title="Order Dashboard" ng-controller="OrderDashCtrl">
+<ion-view view-title="Order Dashboard" ng-controller="OrderDashCtrl as vm">
   <ion-content class="padding">
     <a class="button button-block button-positive" href="#/app/new-order">New Order</a>
     <div class="list card">
       <div class="item item-divider">In Progress Orders</div>
-      <div class="item item-body">
+      <div class="item item-body" ng-repeat="order in orders">
         <div>
-         Will contain all the orders which are in progress stage
+         {{order.custname}}
         </div>
       </div>
     </div>
