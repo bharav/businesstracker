@@ -24,6 +24,27 @@ angular.module('businesstracker.services', [])
         });
         return deferred.promise;
     }
+    function setOrders(order)
+    {
+      var deferred=$q.defer();
+      var req={
+        method: 'POST',
+        url: 'http://businesstrackerapi.azurewebsites.net/api/orders',
+        headers: {
+          'Content-Type': "application/json"
+        },
+        data: order
+      } 
+      $http(req).success(function(data,status){
+         console.log("Posted order from HTTP", data, status);
+         deferred.resolve(data);
+      })
+      .error(function () {
+          console.log("Error in http call.");
+          deferred.reject();
+        });
+        return deferred.promise;
+    }
 
     function getOrderbyId() {
       var deferred = $q.defer();
@@ -46,6 +67,7 @@ angular.module('businesstracker.services', [])
       setOrderlocal: setOrderlocal,
       getOrderlocal: getOrderlocal,
       getOrders:getOrders,
+      setOrders:setOrders,
       getOrderbyId:getOrderbyId
     }
 

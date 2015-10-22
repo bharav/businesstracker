@@ -42,9 +42,11 @@ angular.module('businesstracker.controllers', [])
     }
     $scope.SubmitOrder = function(){
      Orders.setOrderlocal($scope.order);
-      console.log($scope.order);
-     
-    }
+     Orders.setOrders($scope.order).then(function (data) {
+       $state.go('app.order-summary',{'orderId':data._id});
+      console.log(data);
+    });
+   }
   })
 
   .controller('ChatsCtrl', function ($scope, Chats) {

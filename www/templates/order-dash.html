@@ -5,7 +5,7 @@
       <div class="item item-divider">In Progress Orders</div>
       <div class="item item-body" ng-repeat="order in orders">
         <div>
-         {{order.custname}}
+         <a href="/#/app/orders/{{order._id}}">{{order.custname}}</a>
         </div>
       </div>
     </div>
