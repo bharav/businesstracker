@@ -1,0 +1,61 @@
+<ion-view view-title="Order Summary" ng-controller="OrderSummaryCtrl as vm">
+	<ion-content class="padding">
+		
+		<div class="list card">
+			<div class="item item-divider">Customer Detail</div>
+			<div class="row">
+				<div class="col col-20">Name</div>
+				<div class="col col-80">{{order.custname}}</div>
+			</div>
+			<div class="row">
+				<div class="col col-20">Address</div>
+				<div class="col col-80">{{order.custaddress}}</div>
+			</div>
+			<div class="row">
+				<div class="col col-20">Phone</div>
+				<div class="col col-80">{{order.custphone}}</div>
+			</div>
+			<div class="row">
+				<div class="col col-20">Email</div>
+				<div class="col col-80">{{order.custemail}}</div>
+			</div>
+			<div class="item item-divider">Product Details</div>
+			<div class="row">
+				<div class="col">
+					<h5>Item Name</h5></div>
+				<div class="col">
+					<h5>Item Quantity</h5></div>
+				<div class="col">
+					<h5>Item Cost</h5></div>
+			</div>
+			<div class="row" ng-repeat="product in order.product">
+				<div class="col">{{product.productname}}</div>
+				<div class="col">{{product.productunit}}</div>
+				<div class="col">{{product.productunitprice}}</div>
+			</div>
+			<div class="row">
+				<div class="col col-70">
+					<h5>Total Amount</h5></div>
+				<div class="col">
+					<h5>{{getOrderTotalAmount()}}</h5></div>
+			</div>
+			<div class="item item-divider">Payment Details</div>
+			<div class="row">
+				<div class="col col-30">Payment Completed</div>
+				<div class="col col-70">{{order.paymentstatus}}</div>
+			</div>
+			<div class="row">
+				<div class="col col-30">Payment Mode</div>
+				<div class="col col-70">{{order.paymenttype}}({{order.paymentbank}}{{order.paymentwallet}})</div>
+			</div>
+			<div class="item item-divider">Product Description</div>
+			<div class="row"><div class="col">{{order.paymentcomment}}</div></div>
+			<div class="item item-divider">Shipping Details</div>
+			<div class="row">
+				<div class="col col-30">Shipment Status</div>
+				<div class="col">{{order.ordershipping}}<br>{{order.orderstatuscomment}}</div>
+			</div>
+			
+		</div>
+	</ion-content>
+</ion-view>

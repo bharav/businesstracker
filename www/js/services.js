@@ -4,22 +4,15 @@ angular.module('businesstracker.services', [])
     // Might use a resource here that returns a JSON array
     // Some fake testing data
     var currentorderId;
-    var customer = {};
-    var orderproduct = {};
-    function setCustomer(data) {
-      customer = data;
+    var orderlocal = {};
+    function setOrderlocal(data) {
+      orderlocal = data;
     }
-    function getCustomer() {
-      return customer;
-    }
-    function setOrderProduct(data) {
-      orderproduct = data;
-    }
-    function getOrderProduct() {
-      return orderproduct;
+    function getOrderlocal() {
+      return orderlocal;
     }
 
-    function getOrders(callback) {
+    function getOrders() {
       var deferred = $q.defer();
       $http.get("http://businesstrackerapi.azurewebsites.net/api/orders")
         .success(function (data) {
@@ -50,10 +43,8 @@ angular.module('businesstracker.services', [])
     }
     return {
       setOrderId: setOrderId,
-      setCustomer: setCustomer,
-      getCustomer: getCustomer,
-      setOrderProduct: setOrderProduct,
-      getOrderProduct: getOrderProduct,
+      setOrderlocal: setOrderlocal,
+      getOrderlocal: getOrderlocal,
       getOrders:getOrders,
       getOrderbyId:getOrderbyId
     }

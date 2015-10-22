@@ -2,13 +2,13 @@
 	<ion-content class="padding">
 		<div class="list">
 			<label class="item item-input">
-				<input type="text" placeholder="Name" ng-model="product.name">
+				<input type="text" placeholder="Name" ng-model="product.productname">
 			</label>
 			<label class="item item-input">
-				<input type="text" placeholder="Quantity" ng-model="product.unit">
+				<input type="text" placeholder="Quantity" ng-model="product.productunit">
 			</label>
 			<label class="item item-input">
-				<input type="text" placeholder="Cost" ng-model="product.unitprice">
+				<input type="text" placeholder="Cost" ng-model="product.productunitprice">
 			</label>
 		</div>
 		<a class="button button-calm" ng-click="AddProduct()">Add</a>
@@ -22,15 +22,15 @@
 		</div>
 		<div class="row" ng-repeat="product in productListConsolidate">
 			<div class="col">{{product.productname}}</div>
-			<div class="col">{{product.productUnit}}</div>
-			<div class="col">{{product.productUnitCost}}</div>
+			<div class="col">{{product.productunit}}</div>
+			<div class="col">{{product.productunitprice}}</div>
 		</div>
 		<div class="list card">
 			<div class="row">
 				<div class="col col-70">
 					<h5>Total Amount</h5></div>
 				<div class="col">
-					<h5>{{getOrderTotalAmount()}}</h5></div>
+					<h5>{{totalamount}}</h5></div>
 			</div>
 		</div>
 

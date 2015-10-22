@@ -1,17 +1,17 @@
-<ion-view view-title="Customer Details" ng-controller="NewOrderCtrl as customer">
+<ion-view view-title="Customer Details" ng-controller="NewOrderCtrl as order">
 	<ion-content class="padding">
 		<div class="list">
 			<label class="item item-input">
-				<input type="text" placeholder="Name" ng-model="customer.name">
+				<input type="text" placeholder="Name" ng-model="order.custname">
 			</label>
 			<label class="item item-input">
-				<input type="text" placeholder="Mobile No" ng-model="customer.mobile">
+				<input type="text" placeholder="Mobile No" ng-model="order.custphone">
 			</label>
 			<label class="item item-input">
-				<textarea placeholder="Email" ng-model="customer.email"></textarea>
+				<textarea placeholder="Email" ng-model="order.custemail"></textarea>
 			</label>
 			<label class="item item-input">
-				<textarea placeholder="Address" ng-model="customer.address"></textarea>
+				<textarea placeholder="Address" ng-model="order.custaddress"></textarea>
 			</label>
 		</div>
 		
