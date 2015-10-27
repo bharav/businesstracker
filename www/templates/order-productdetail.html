@@ -11,20 +11,17 @@
 				<input type="text" placeholder="Cost" ng-model="product.productunitprice">
 			</label>
 		</div>
-		<a class="button button-calm" ng-click="AddProduct()">Add</a>
-		<div class="row">
-			<div class="col">
-				<h5>Item Name</h5></div>
-			<div class="col">
-				<h5>Item Quantity</h5></div>
-			<div class="col">
-				<h5>Item Cost</h5></div>
-		</div>
-		<div class="row" ng-repeat="product in productListConsolidate">
-			<div class="col">{{product.productname}}</div>
-			<div class="col">{{product.productunit}}</div>
-			<div class="col">{{product.productunitprice}}</div>
-		</div>
+		<a class="button button-block button-calm" ng-click="AddProduct()">Add</a>
+		<ion-list can-swipe="listCanSwipe">
+			<ion-item ng-repeat="product in productListConsolidate" class="item-thumbnail-right">
+				<h3>Product Name: {{product.productname}}</h3>
+				<h5>Unit:{{product.productunit}}</h5>
+				<h5>Unit Price:{{product.productunitprice}}</h5>
+				<ion-option-button class="button-balanced" ng-click="productedit(product,$index)">Edit</ion-option-button>
+				<ion-option-button class="button-assertive" ng-click="productdelete(product,$index)">Delete</ion-option-button>
+			</ion-item>
+		</ion-list>
+
 		<div class="list card">
 			<div class="row">
 				<div class="col col-70">

@@ -14,7 +14,7 @@ angular.module('businesstracker.controllers', [])
       $scope.productListConsolidate = $scope.order.product;
       $scope.totalamount = $scope.order.totalamount;
     }
-
+   $scope.listCanSwipe = true
 
     $scope.AddProduct = function () {
       var productlist = {
@@ -32,7 +32,17 @@ angular.module('businesstracker.controllers', [])
       console.log(productlist);
       console.log($scope.productListConsolidate);
     }
-
+    $scope.productedit= function(product,index){
+      $scope.product.productname = product.productname;
+      $scope.product.productunit = product.productunit;
+      $scope.product.productunitprice=product.productunitprice;
+      $scope.totalamount -=(product.productunit*product.productunitprice);
+      $scope.productListConsolidate.splice(index,1);
+    }
+    $scope.productdelete= function(product,index){
+      $scope.totalamount -=(product.productunit*product.productunitprice);
+      $scope.productListConsolidate.splice(index,1);
+    }
 
     $scope.GoToPayment = function () {
       $scope.order.product = $scope.productListConsolidate;
