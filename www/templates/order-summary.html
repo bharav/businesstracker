@@ -37,7 +37,7 @@
 				<div class="col col-70">
 					<h5>Total Amount</h5></div>
 				<div class="col">
-					<h5>{{getOrderTotalAmount()}}</h5></div>
+					<h5>{{order.totalamount}}</h5></div>
 			</div>
 			<div class="item item-divider">Payment Details</div>
 			<div class="row">
@@ -56,7 +56,7 @@
 				<div class="col">{{order.ordershipping}}<br>{{order.orderstatuscomment}}</div>
 			</div>
 			<div>
-				<a class="button button-calm ionic-right" href="#/app/editorder/56266902cdd3ca441a835843">Edit</a>
+				<a class="button button-calm ionic-right" href="#/app/editorder/{{order._id}}">Edit</a>
 				<a class="button button-calm ionic-right" href="#/dash/order">Close</a>
 			</div>
 		</div>

@@ -1,20 +1,28 @@
 <ion-view view-title="Order Dashboard" ng-controller="OrderDashCtrl as vm">
   <ion-content class="padding">
+    <div class="list list-inset">
+      <div class="row">
+        <div class="col col-80">
+          <label class="item item-input">
+            <input type="date" placeholder="Search" ng-model="vm.orderdate">
+          </label>
+        </div>
+        <div class="col col-20">
+          <button class="button button-small button-icon icon ion-search" ng-click="SearchOrderbyDate()"></button>
+        </div>
+      </div>
+    </div>
     <a class="button button-block button-positive" href="#/app/new-order">New Order</a>
     <div class="list card">
       <div class="item item-divider">In Progress Orders</div>
-      <div class="item item-body" ng-repeat="order in orders">
-        <div>
-         <a href="/#/app/orders/{{order._id}}">{{order.custname}}</a>
-        </div>
+      <div ng-repeat="order in orders | filter:{ orderstatus: 'In Progress' }">
+        <button class="button button-block button-light" ng-click="GoToOrder(order._id)">{{order.custname}}</button>
       </div>
     </div>
     <div class="list card">
       <div class="item item-divider">Completed</div>
-      <div class="item item-body">
-        <div>
-          Will Contain all the order which are completed!
-        </div>
+      <div ng-repeat="order in orders | filter:{ orderstatus: 'Completed' }">
+        <button class="button button-block button-light" ng-click="GoToOrder(order._id)">{{order.custname}}</button>
       </div>
     </div>
   </ion-content>

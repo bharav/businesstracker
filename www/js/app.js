@@ -70,6 +70,15 @@ angular.module('businesstracker', ['ionic','businesstracker.controllers','busine
       }
     }
   })
+   .state('app.editorder', {
+    url: '/editorder/:orderId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/order-new.html',
+        controller:'NewOrderCtrl'
+      }
+    }
+  })
    .state('app.no-productdeatil', {
     url: '/no-productdeatil',
     views: {
@@ -79,7 +88,7 @@ angular.module('businesstracker', ['ionic','businesstracker.controllers','busine
       }
     }
   })
-   .state('app.new-order-payment', {
+     .state('app.new-order-payment', {
     url: '/new-order-payment',
     views: {
       'menuContent': {
@@ -88,6 +97,7 @@ angular.module('businesstracker', ['ionic','businesstracker.controllers','busine
       }
     }
   })
+  
  .state('app.order-summary', {
     url: '/orders/:orderId',
     views: {
@@ -107,6 +117,6 @@ angular.module('businesstracker', ['ionic','businesstracker.controllers','busine
 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/orders/56266902cdd3ca441a835843');
+  $urlRouterProvider.otherwise('/dash/order');
 
 });
