@@ -1,0 +1,60 @@
+<ion-view view-title="Payment Details" ng-controller="NewPurchaseCtrl as newpurchase">
+  <ion-content class="padding">
+    <div class="item">
+      Payment Done
+      <label class="toggle toggle-assertive">
+        <input type="checkbox" ng-model="newpurchase.ppaymentstatus">
+        <div class="track">
+          <div class="handle"></div>
+        </div>
+      </label>
+    </div>
+    </label>
+    <div ng-show="newpurchase.ppaymentstatus">
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Payment Mode
+        </div>
+        <select ng-model="newpurchase.ppaymenttype">
+          <option ng-option value="Cash">Cash</option>
+          <option ng-option value="NetBanking">Net Banking</option>
+        </select>
+      </label>
+      <div ng-if="newpurchase.ppaymenttype == 'NetBanking'">
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Payment from
+          </div>
+          <select ng-model="newpurchase.ppaymentfrombank">
+            <option ng-option value="IDBI">IDBI</option>
+            <option ng-option value="ICICI">ICICI</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <label class="item item-input">
+          <textarea placeholder="Payment Description" ng-model="newpurchase.ppaymentcomment"></textarea>
+        </label>
+      </div>
+    </div>
+    <div>
+      <div>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Purchase Status
+          </div>
+          <select ng-model="newpurchase.purchasestatus">
+            <option ng-option value="In Progress">In Progress</option>
+            <option ng-option value="Completed">Completed</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <label class="item item-input">
+          <textarea placeholder="Payment Description" ng-model="newpurchase.ppaymentcomment"></textarea>
+        </label>
+      </div>
+    </div>
+    <button class="button button-block button-positive" ng-click="SubmitPurchase()">Submit</button>
+  </ion-content>
+</ion-view>

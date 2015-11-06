@@ -1,0 +1,69 @@
+<ion-view view-title="Purchase Summary" ng-controller="PurchaseSummaryCtrl as vm">
+	<ion-content class="padding">
+
+		<div class="list card">
+			<div class="item item-divider">Supplier Detail</div>
+			<div class="row">
+				<div class="col col-20">Name</div>
+				<div class="col col-80">{{purchase.suppliername}}</div>
+			</div>
+			<div class="row">
+				<div class="col col-20">Address</div>
+				<div class="col col-80">{{purchase.supplieraddress}}</div>
+			</div>
+			<div class="row">
+				<div class="col col-20">Phone</div>
+				<div class="col col-80">{{purchase.supplierphone}}</div>
+			</div>
+			<div class="row">
+				<div class="col col-20">Email</div>
+				<div class="col col-80">{{purchase.supplieremail}}</div>
+			</div>
+			<div class="item item-divider">Product Details</div>
+			<div class="row">
+				<div class="col">
+					<h5>Item Name</h5></div>
+				<div class="col">
+					<h5>Item Quantity</h5></div>
+				<div class="col">
+					<h5>Purchase Cost</h5></div>
+			</div>
+			<div class="row" ng-repeat="product in purchase.product">
+				<div class="col">{{product.productname}}</div>
+				<div class="col">{{product.productunit}}</div>
+				<div class="col">{{product.productunitpurhaseprice}}</div>
+			</div>
+			<div class="row">
+				<div class="col col-70">
+					<h5>Total Amount</h5></div>
+				<div class="col">
+					<h5>{{purchase.purchasetotalamount}}</h5></div>
+			</div>
+			<div class="item item-divider">Payment Details</div>
+			<div class="row">
+				<div class="col col-30">Payment Completed</div>
+				<div class="col col-70">{{purchase.ppaymentstatus}}</div>
+			</div>
+			<div class="row">
+				<div class="col col-30">Payment From</div>
+				<div class="col col-70">{{purchase.ppaymenttype}}({{purchase.ppaymentfrombank}})</div>
+			</div>
+			<div class="item item-divider">Payment Description</div>
+			<div class="row">
+				<div class="col">{{order.ppaymentcomment}}</div>
+			</div>
+			<div class="item item-divider">Purchase Status</div>
+			<div class="row">
+				<div class="col">{{purchase.purchasestatus}}</div>
+
+			</div>
+			<div class="row">
+				<div class="col">{{purchase.purchasetatuscomment}}</div>
+			</div>
+			<div>
+				<a class="button button-calm ionic-right" href="#/app/editorder/{{purchase._id}}">Edit</a>
+				<a class="button button-calm ionic-right" href="#/dash/purchase">Close</a>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
