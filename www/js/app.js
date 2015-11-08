@@ -51,7 +51,7 @@ angular.module('businesstracker', ['ionic','businesstracker.controllers','busine
     views: {
       'dash-purchase': {
         templateUrl: 'templates/purchase-dash.html',
-        controller:'OrderDashCtrl'
+        controller:'PurchaseDashCtrl'
       }
     }
   })
@@ -88,7 +88,7 @@ angular.module('businesstracker', ['ionic','businesstracker.controllers','busine
       }
     }
   })
-     .state('app.new-order-payment', {
+    .state('app.new-order-payment', {
     url: '/new-order-payment',
     views: {
       'menuContent': {
@@ -106,11 +106,38 @@ angular.module('businesstracker', ['ionic','businesstracker.controllers','busine
       }
     }
   })
-  .state('app.new-purchase', {
+   .state('app.new-purchase', {
     url: '/new-purchase',
     views: {
       'menuContent': {
-        templateUrl: 'templates/purchase-new.html'
+        templateUrl: 'templates/purchase-new.html',
+        controller:'NewPurchaseCtrl'
+      }
+    }
+  })
+  .state('app.purchase-productdeatil', {
+    url: '/purchase-productdeatil',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/purchase-productdetail.html',
+        controller:'NewPurchaseCtrl'
+      }
+    }
+  })
+   .state('app.purchase-payment', {
+    url: '/purchase-payment',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/purchase-payment.html',
+        controller:'NewPurchaseCtrl'
+      }
+    }
+  })
+  .state('app.purchase-summary', {
+    url: '/purchases/:purchaseId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/purchase-summary.html'
       }
     }
   });

@@ -1,19 +1,20 @@
-<ion-view view-title="Delear Details">
+<ion-view view-title="Supplier Details" ng-controller="NewPurchaseCtrl as newpurchase">
 	<ion-content class="padding">
 		<div class="list">
 			<label class="item item-input">
-				<input type="text" placeholder="Name">
+				<input type="text" placeholder="Name" ng-model="newpurchase.suppliername">
 			</label>
 			<label class="item item-input">
-				<input type="text" placeholder="Mobile No">
+				<input type="text" placeholder="Mobile No" ng-model="newpurchase.supplierphone">
 			</label>
 			<label class="item item-input">
-				<textarea placeholder="Email"></textarea>
+				<input type="text" placeholder="Email" ng-model="newpurchase.supplieremail"></input>
 			</label>
 			<label class="item item-input">
-				<textarea placeholder="Address"></textarea>
+				<textarea placeholder="Address" ng-model="newpurchase.supplieraddress"></textarea>
 			</label>
 		</div>
-		<a class="button icon-right ion-chevron-right button-calm">Next</a>
+		
+		<a class="button icon-right ion-chevron-right button-calm" href="" ng-click="GoToPurchasePrd()">Next</a>
 	</ion-content>
 </ion-view>
