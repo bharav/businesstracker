@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('businesstracker', ['ionic','businesstracker.controllers','businesstracker.services','businesstracker.validation'])
+angular.module('businesstracker', ['ionic','businesstracker.services','businesstracker.validation'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -60,7 +60,7 @@ angular.module('businesstracker', ['ionic','businesstracker.controllers','busine
     abstract: true,
     templateUrl: 'templates/app.html'
   })
-  
+
   .state('app.new-order', {
     url: '/new-order',
     views: {
@@ -97,7 +97,7 @@ angular.module('businesstracker', ['ionic','businesstracker.controllers','busine
       }
     }
   })
-  
+
  .state('app.order-summary', {
     url: '/orders/:orderId',
     views: {
