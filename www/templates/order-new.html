@@ -1,20 +1,25 @@
 <ion-view view-title="Customer Details" ng-controller="NewOrderCtrl as neworder">
 	<ion-content class="padding">
-		<div class="list">
-			<label class="item item-input">
-				<input type="text" placeholder="Name" ng-model="neworder.custname">
-			</label>
-			<label class="item item-input">
-				<input type="text" placeholder="Mobile No" ng-model="neworder.custphone">
-			</label>
-			<label class="item item-input">
-				<input type="text" placeholder="Email" ng-model="neworder.custemail"></input>
-			</label>
-			<label class="item item-input">
-				<textarea placeholder="Address" ng-model="neworder.custaddress"></textarea>
-			</label>
-		</div>
-		
-		<a class="button icon-right ion-chevron-right button-calm" href="" ng-click="GoToProduct()">Next</a>
+		<form novalidate="novalidate" on-valid-submit="GoToProduct()">
+			<div class="list">
+				<label class="item item-input validated">
+					<input type="text" placeholder="Name" ng-model="neworder.custname" required="required">
+					<i class="icon ion-alert-circled error"></i>
+				</label>
+				<label class="item item-input validated">
+					<input type="number" placeholder="Mobile No" ng-model="neworder.custphone" required="required">
+					<i class="icon ion-alert-circled error"></i>
+				</label>
+				<label class="item item-input validated">
+					<input type="email" placeholder="Email" ng-model="neworder.custemail" required="required"></input>
+					<i class="icon ion-alert-circled error"></i>
+				</label>
+				<label class="item item-input validated">
+					<input type="text" placeholder="Address" ng-model="neworder.custaddress" required="required"></input>
+					<i class="icon ion-alert-circled error"></i>
+				</label>
+			</div>
+			<button type="submit" class="button icon-right ion-chevron-right button-calm">Next</button>
+		</form>
 	</ion-content>
 </ion-view>
