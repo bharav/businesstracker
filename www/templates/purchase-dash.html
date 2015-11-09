@@ -14,15 +14,15 @@
     </div>
     <a class="button button-block button-positive" href="#/app/new-purchase">New Purchase</a>
     <div class="list card">
-      <div class="item item-divider">In Progress Orders</div>
+      <div class="item item-divider">In Progress Purchases</div>
       <div ng-repeat="purchase in purchases | filter:{ purchasestatus: 'In Progress' }">
-        <button class="button button-block button-light" ng-click="GoToPurchase(purchase._id)">{{purchase.delname}}</button>
+        <button class="button button-block button-light" ng-click="GoToPurchase(purchase._id)">{{purchase.suppliername}}</button>
       </div>
     </div>
     <div class="list card">
       <div class="item item-divider">Completed</div>
       <div ng-repeat="purchase in purchases | filter:{ purchasestatus: 'Completed' }">
-        <button class="button button-block button-light" ng-click="GoToPurchase(purchase._id)">{{purchase.delname}}</button>
+        <button class="button button-block button-light" ng-click="GoToPurchase(purchase._id)">{{purchase.suppliername}}</button>
       </div>
     </div>
   </ion-content>

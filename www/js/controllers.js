@@ -232,7 +232,7 @@ angular.module('businesstracker.controllers', [])
     });
     Purchases.getPurchases().then(function (data) {
       console.log(data);
-      $scope.orders = data;
+      $scope.purchases = data;
       $ionicLoading.hide();
     });
     $scope.SearchPurchasebyDate = function () {
@@ -242,12 +242,12 @@ angular.module('businesstracker.controllers', [])
       Purchases.setPurchaseDate($scope.vm.orderdate);
       Purchases.getPurchasesbyDate().then(function (data) {
         console.log(data);
-        $scope.orders = data;
+        $scope.purchases = data;
         $ionicLoading.hide();
       });
     }
-    $scope.GoToPurchase = function (orderid) {
-      $state.go('app.order-summary', { 'orderId': orderid });
+    $scope.GoToPurchase = function (purchaseid) {
+      $state.go('app.purchase-summary', { 'purchaseId': purchaseid });
     }
   })
   .controller('PurchaseSummaryCtrl', function ($scope, $stateParams, Purchases, $ionicLoading) {
