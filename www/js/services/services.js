@@ -5,13 +5,16 @@ angular.module('businesstracker.services', [])
     var currentorderId;
     var orderlocal = {};
     var searchorderdate;
+    
+    // Set Order in local variable need to change to local storage
     function setOrderlocal(data) {
       orderlocal = data;
     }
+    //Get Order from local variable need to change it from local variable
     function getOrderlocal() {
       return orderlocal;
     }
-
+    //Get list of orders from server
     function getOrders() {
       var deferred = $q.defer();
       $http.get("http://businesstrackerapi.azurewebsites.net/api/orders")
@@ -24,6 +27,7 @@ angular.module('businesstracker.services', [])
         });
       return deferred.promise;
     }
+    //Set order details in server
     function setOrders(order) {
       var deferred = $q.defer();
       var req = {
@@ -44,6 +48,7 @@ angular.module('businesstracker.services', [])
         });
       return deferred.promise;
     }
+    //Update order details in server
     function updateOrder(order) {
       var deferred = $q.defer();
       var req = {
@@ -64,6 +69,7 @@ angular.module('businesstracker.services', [])
         });
       return deferred.promise;
     }
+    //Get order details from server "Parameter" orderId
     function getOrderbyId() {
       var deferred = $q.defer();
       $http.get("http://businesstrackerapi.azurewebsites.net/api/orders/" + currentorderId)
@@ -77,6 +83,7 @@ angular.module('businesstracker.services', [])
         });
       return deferred.promise;
     }
+    //Get order list from server "Parameter" orderbydate
     function getOrdersbyDate() {
       var deferred = $q.defer();
       $http.get("http://businesstrackerapi.azurewebsites.net/api/orders?orderdate=" + searchorderdate)
@@ -90,9 +97,11 @@ angular.module('businesstracker.services', [])
         });
       return deferred.promise;
     }
+    // Set order id in local variable
     function setOrderId(orderId) {
       currentorderId = orderId;
     }
+    //set order date in local variable
     function setOrderDate(orderdate) {
       searchorderdate = orderdate;
     }
@@ -218,4 +227,22 @@ angular.module('businesstracker.services', [])
       getPurchasesbyDate: getPurchasesbyDate
     }
 
-  });
+  })
+  .factory('Customers',function($http,$q){
+   function getCustomers() {
+      var deferred = $q.defer();
+      $http.get("http://localhost:8000/api/customers")
+        .success(function (data) {
+          deferred.resolve(data);
+        })
+        .error(function () {
+          console.log("Error in http call.");
+          deferred.reject();
+        });
+      return deferred.promise;
+    }
+    return{
+      getCustomers: getCustomers
+    }
+});
+

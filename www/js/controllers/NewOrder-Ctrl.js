@@ -1,7 +1,7 @@
-(function(){
+(function () {
   'use strict'
-  angular.module('businesstracker').controller('NewOrderCtrl',['$scope', '$state', '$stateParams', '$ionicLoading', 'Orders',NewOrderCtrl]);
-  function NewOrderCtrl($scope, $state, $stateParams, $ionicLoading, Orders) {
+  angular.module('businesstracker').controller('NewOrderCtrl', ['$scope', '$state', '$stateParams', '$ionicLoading', 'Orders', 'Customers','Products', NewOrderCtrl]);
+  function NewOrderCtrl($scope, $state, $stateParams, $ionicLoading, Orders, Customers,Products) {
     if (typeof $stateParams.orderId != 'undefined') {
       $ionicLoading.show({
         template: 'Loading...'
@@ -12,6 +12,30 @@
         $ionicLoading.hide();
       });
     }
+     Customers.getCustomers().then(function (data) {
+       console.log(data);
+        $scope.custitems = data;
+      });
+     Products.getProducts().then(function (data) {
+       console.log(data);
+         $scope.prditems =  data;
+      });;
+      $scope.name = ""; 
+      $scope.onCustSelected = function () {
+        console.log('selected=' + $scope.neworder.customer._id);
+        $scope.neworder.custId = $scope.neworder.customer._id;
+        $scope.neworder.custname=$scope.neworder.customer.name;
+        $scope.neworder.custphone=$scope.neworder.customer.phone;
+        $scope.neworder.custemail=$scope.neworder.customer.email;
+        $scope.neworder.custaddress=$scope.neworder.customer.address;
+      }
+      $scope.onPrdSelected=function(){
+         console.log('selected=' + $scope.product.prd._id);
+         $scope.product.productId = $scope.product.prd._id
+         $scope.product.productname=$scope.product.prd.name;
+         $scope.product.productunitprice=$scope.product.prd.currentSP;
+         $scope.product.prd =null;
+      }
     $scope.productListConsolidate = [];
     $scope.totalamount = 0.00;
     $scope.neworder = Orders.getOrderlocal();
@@ -28,17 +52,17 @@
 
     $scope.AddProduct = function () {
       var productlist = {
+        productId: $scope.product.productId,
         productname: $scope.product.productname,
         productunit: $scope.product.productunit,
         productunitprice: $scope.product.productunitprice
       };
       $scope.totalamount += ($scope.product.productunitprice * $scope.product.productunit);
       $scope.productListConsolidate.push(productlist);
+      $scope.product.productId='';
       $scope.product.productname = '';
       $scope.product.productunit = '';
       $scope.product.productunitprice = '';
-
-
       console.log(productlist);
       console.log($scope.productListConsolidate);
     }
