@@ -1,6 +1,10 @@
 <ion-view view-title="Product Details" ng-controller="NewOrderCtrl as product">
 	<ion-content class="padding">
 		<form novalidate="novalidate" on-valid-submit="AddProduct()">
+			<div>
+				<typeahead items="prditems" prompt="Start typing a product name" title="name" subtitle="batch" itemid="_id" model="product.prd"
+				on-select="onPrdSelected()" />
+			</div>	
 			<div class="list">
 				<label class="item item-input validated">
 					<input type="text" placeholder="Name" ng-model="product.productname" required="required">

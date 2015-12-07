@@ -23,7 +23,7 @@
       $scope.name = ""; 
       $scope.onCustSelected = function () {
         console.log('selected=' + $scope.neworder.customer._id);
-        $scope.neworder.custId = $scope.neworder.customer._id;
+        $scope.neworder.custid = $scope.neworder.customer._id;
         $scope.neworder.custname=$scope.neworder.customer.name;
         $scope.neworder.custphone=$scope.neworder.customer.phone;
         $scope.neworder.custemail=$scope.neworder.customer.email;
@@ -31,7 +31,7 @@
       }
       $scope.onPrdSelected=function(){
          console.log('selected=' + $scope.product.prd._id);
-         $scope.product.productId = $scope.product.prd._id
+         $scope.product.productid = $scope.product.prd._id
          $scope.product.productname=$scope.product.prd.name;
          $scope.product.productunitprice=$scope.product.prd.currentSP;
          $scope.product.prd =null;
@@ -52,14 +52,14 @@
 
     $scope.AddProduct = function () {
       var productlist = {
-        productId: $scope.product.productId,
+        productid: $scope.product.productid,
         productname: $scope.product.productname,
         productunit: $scope.product.productunit,
         productunitprice: $scope.product.productunitprice
       };
       $scope.totalamount += ($scope.product.productunitprice * $scope.product.productunit);
       $scope.productListConsolidate.push(productlist);
-      $scope.product.productId='';
+      $scope.product.productid='';
       $scope.product.productname = '';
       $scope.product.productunit = '';
       $scope.product.productunitprice = '';

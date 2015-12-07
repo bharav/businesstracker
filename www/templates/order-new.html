@@ -2,20 +2,24 @@
 	<ion-content class="padding">
 		<form novalidate="novalidate" on-valid-submit="GoToProduct()">
 			<div class="list">
+				<typeahead items="custitems" prompt="Start typing a customer name" title="name" subtitle="phone" itemid="_id" model="neworder.customer"
+				on-select="onCustSelected()" />
+			</div>
+			<div class="list">
 				<label class="item item-input validated">
-					<input type="text" placeholder="Name" ng-model="neworder.custname" required="required">
+					<input type="text" placeholder="Name" ng-model="neworder.custname" readonly="readonly">
 					<i class="icon ion-alert-circled error"></i>
 				</label>
 				<label class="item item-input validated">
-					<input type="number" placeholder="Mobile No" ng-model="neworder.custphone" required="required">
+					<input type="number" placeholder="Mobile No" ng-model="neworder.custphone" readonly="readonly">
 					<i class="icon ion-alert-circled error"></i>
 				</label>
 				<label class="item item-input validated">
-					<input type="email" placeholder="Email" ng-model="neworder.custemail" required="required"></input>
+					<input type="email" placeholder="Email" ng-model="neworder.custemail" readonly="readonly"></input>
 					<i class="icon ion-alert-circled error"></i>
 				</label>
 				<label class="item item-input validated">
-					<input type="text" placeholder="Address" ng-model="neworder.custaddress" required="required"></input>
+					<input type="text" placeholder="Address" ng-model="neworder.custaddress" readonly="readonly"></input>
 					<i class="icon ion-alert-circled error"></i>
 				</label>
 			</div>

@@ -17,7 +17,7 @@ angular.module('businesstracker.services', [])
     //Get list of orders from server
     function getOrders() {
       var deferred = $q.defer();
-      $http.get("http://businesstrackerapi.azurewebsites.net/api/orders")
+      $http.get("http://localhost:8000/api/orders")
         .success(function (data) {
           deferred.resolve(data);
         })
@@ -32,7 +32,7 @@ angular.module('businesstracker.services', [])
       var deferred = $q.defer();
       var req = {
         method: 'POST',
-        url: 'http://businesstrackerapi.azurewebsites.net/api/orders',
+        url: 'http://localhost:8000/api/orders',
         headers: {
           'Content-Type': "application/json"
         },
@@ -53,7 +53,7 @@ angular.module('businesstracker.services', [])
       var deferred = $q.defer();
       var req = {
         method: 'PUT',
-        url: 'http://businesstrackerapi.azurewebsites.net/api/orders/' + currentorderId,
+        url: 'http://localhost:8000/api/orders/' + currentorderId,
         headers: {
           'Content-Type': "application/json"
         },
@@ -72,7 +72,7 @@ angular.module('businesstracker.services', [])
     //Get order details from server "Parameter" orderId
     function getOrderbyId() {
       var deferred = $q.defer();
-      $http.get("http://businesstrackerapi.azurewebsites.net/api/orders/" + currentorderId)
+      $http.get("http://localhost:8000/api/orders/" + currentorderId)
         .success(function (data, status) {
           console.log("Received order from HTTP", data, status);
           deferred.resolve(data);
@@ -86,7 +86,7 @@ angular.module('businesstracker.services', [])
     //Get order list from server "Parameter" orderbydate
     function getOrdersbyDate() {
       var deferred = $q.defer();
-      $http.get("http://businesstrackerapi.azurewebsites.net/api/orders?orderdate=" + searchorderdate)
+      $http.get("http://localhost:8000/api/orders?orderdate=" + searchorderdate)
         .success(function (data, status) {
           console.log("Received order from HTTP", data, status);
           deferred.resolve(data);
@@ -133,7 +133,7 @@ angular.module('businesstracker.services', [])
 
     function getPurchases() {
       var deferred = $q.defer();
-      $http.get("http://businesstrackerapi.azurewebsites.net/api/purchases")
+      $http.get("http://localhost:8000/api/purchases")
         .success(function (data) {
           deferred.resolve(data);
         })
@@ -147,7 +147,7 @@ angular.module('businesstracker.services', [])
       var deferred = $q.defer();
       var req = {
         method: 'POST',
-        url: 'http://businesstrackerapi.azurewebsites.net/api/purchases',
+        url: 'http://localhost:8000/api/purchases',
         headers: {
           'Content-Type': "application/json"
         },
@@ -167,7 +167,7 @@ angular.module('businesstracker.services', [])
       var deferred = $q.defer();
       var req = {
         method: 'PUT',
-        url: 'http://businesstrackerapi.azurewebsites.net/api/purchases/' + currentpurchaseId,
+        url: 'http://localhost:8000/api/purchases/' + currentpurchaseId,
         headers: {
           'Content-Type': "application/json"
         },
@@ -185,7 +185,7 @@ angular.module('businesstracker.services', [])
     }
     function getPurchasebyId() {
       var deferred = $q.defer();
-      $http.get("http://businesstrackerapi.azurewebsites.net/api/purchases/" + currentpurchaseId)
+      $http.get("http://localhost:8000/api/purchases/" + currentpurchaseId)
         .success(function (data, status) {
           console.log("Received purchase from HTTP", data, status);
           deferred.resolve(data);
@@ -198,7 +198,7 @@ angular.module('businesstracker.services', [])
     }
     function getPurchasesbyDate() {
       var deferred = $q.defer();
-      $http.get("http://businesstrackerapi.azurewebsites.net/api/purchases?purchasedate=" + searchpurchasedate)
+      $http.get("http://localhost:8000/api/purchases?purchasedate=" + searchpurchasedate)
         .success(function (data, status) {
           console.log("Received purchase from HTTP", data, status);
           deferred.resolve(data);
