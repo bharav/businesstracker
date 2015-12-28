@@ -18,15 +18,19 @@
 
 (function() {
   'use strict';
-  angular.module('businesstracker').controller('OrderSummaryCtrl', ['$scope','$stateParams','$ionicLoading','Orders',OrderSummaryCtrl]);
-  function OrderSummaryCtrl($scope,$stateParams,$ionicLoading,Orders) {
+  angular.module('businesstracker').controller('OrderSummaryCtrl', ['$scope','$stateParams','$ionicLoading','Orders','Customers',OrderSummaryCtrl]);
+  function OrderSummaryCtrl($scope,$stateParams,$ionicLoading,Orders,Customers) {
   Orders.setOrderId($stateParams.orderId);
   $ionicLoading.show({
     template: 'Loading...'
   });
   Orders.getOrderbyId().then(function (data) {
     $scope.order = data;
-    $ionicLoading.hide();
+      Customers.getCustomerbyId($scope.order.custid).then(function (data){
+        $scope.order.customer = data;
+        $ionicLoading.hide();
+      });
+    
   });
 }
 })();

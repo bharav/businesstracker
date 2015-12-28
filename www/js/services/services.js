@@ -228,8 +228,8 @@ angular.module('businesstracker.services', [])
     }
 
   })
-  .factory('Customers',function($http,$q){
-   function getCustomers() {
+  .factory('Customers', function ($http, $q) {
+    function getCustomers() {
       var deferred = $q.defer();
       $http.get("http://localhost:8000/api/customers")
         .success(function (data) {
@@ -241,8 +241,42 @@ angular.module('businesstracker.services', [])
         });
       return deferred.promise;
     }
-    return{
-      getCustomers: getCustomers
+    function getCustomerbyId(custId) {
+       var deferred = $q.defer();
+      $http.get("http://localhost:8000/api/customers/"+ custId)
+        .success(function (data) {
+          deferred.resolve(data);
+        })
+        .error(function () {
+          console.log("Error in http call.");
+          deferred.reject();
+        });
+      return deferred.promise;
     }
-});
+    function setCustomer(customer) {
+      var deferred = $q.defer();
+      var req = {
+        method: 'POST',
+        url: 'http://localhost:8000/api/customers',
+        headers: {
+          'Content-Type': "application/json"
+        },
+        data: customer
+      }
+      $http(req).success(function (data, status) {
+        console.log("Posted Purchase from HTTP", data, status);
+        deferred.resolve(data);
+      })
+        .error(function () {
+          console.log("Error in http call.");
+          deferred.reject();
+        });
+      return deferred.promise;
+    }
+    return {
+      getCustomers: getCustomers,
+      setCustomer: setCustomer,
+      getCustomerbyId:getCustomerbyId
+    }
+  });
 

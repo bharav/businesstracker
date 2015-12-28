@@ -27,7 +27,7 @@
         $scope.neworder.custname=$scope.neworder.customer.name;
         $scope.neworder.custphone=$scope.neworder.customer.phone;
         $scope.neworder.custemail=$scope.neworder.customer.email;
-        $scope.neworder.custaddress=$scope.neworder.customer.address;
+        $scope.neworder.custaddress=$scope.neworder.customer.address1 + ", " + $scope.neworder.customer.address2 + ", "+$scope.neworder.customer.city;
       }
       $scope.onPrdSelected=function(){
          console.log('selected=' + $scope.product.prd._id);
