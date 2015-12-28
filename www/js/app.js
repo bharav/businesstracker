@@ -63,7 +63,14 @@ angular.module('businesstracker', ['ionic',
     abstract: true,
     templateUrl: 'templates/app.html'
   })
-
+ .state('app.customer', {
+    url: '/customer',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/customer.html'
+      }
+    }
+  })
   .state('app.new-order', {
     url: '/new-order',
     views: {
