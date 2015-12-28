@@ -1,0 +1,38 @@
+<ion-view view-title="Customer Details" ng-controller="CustomerCtrl as customer">
+	<ion-content class="padding">
+		<div class="list">
+			<label class="item item-input">
+				<input type="text" placeholder="Name" ng-model="customer.name">
+			</label>
+			<label class="item item-input">
+				<input type="number" placeholder="Mobile No" ng-model="customer.mobile">
+			</label>
+			<label class="item item-input">
+				<input type="number" placeholder="Other Phone" ng-model="customer.phone">
+			</label>
+			<label class="item item-input">
+				<input type="email" placeholder="Email" ng-model="customer.email"></input>
+			</label>
+			<label class="item item-input">
+				<textarea placeholder="Address Line 1" ng-model="customer.address1"></textarea>
+			</label>
+			<label class="item item-input">
+				<textarea placeholder="Address Line 2" ng-model="customer.address2"></textarea>
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="City" ng-model="customer.city"></input>
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="State" ng-model="customer.state"></input>
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Pincode" ng-model="customer.pincode"></input>
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Country" ng-model="customer.country"></input>
+			</label>
+		</div>
+		
+		<a class="button button-block button-dark" ng-click="SaveCustomerDetail()">Save Customer</a>
+	</ion-content>
+</ion-view>
