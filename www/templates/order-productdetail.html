@@ -19,13 +19,12 @@
 					<i class="icon ion-alert-circled error"></i>
 				</label>
 			</div>
-			<button class="button button-block button-calm">Add</button>
+			<button class="button button-block button-dark">Add Product</button>
 		</form>
 		<ion-list can-swipe="listCanSwipe">
-			<ion-item ng-repeat="product in productListConsolidate" class="item-thumbnail-right">
-				<h3>Product Name: {{product.productname}}</h3>
-				<h5>Unit:{{product.productunit}}</h5>
-				<h5>Unit Price:{{product.productunitprice}}</h5>
+			<ion-item ng-repeat="product in productListConsolidate" class="item">
+				<h3><strong>Product Name:</strong>{{product.productname}}</h3>
+				<p><strong><h4>Unit:</strong> {{product.productunit}}    <strong>Unit Price:</strong> ${{product.productunitprice}}</h4></p>
 				<ion-option-button class="button-balanced" ng-click="productedit(product,$index)">Edit</ion-option-button>
 				<ion-option-button class="button-assertive" ng-click="productdelete(product,$index)">Delete</ion-option-button>
 			</ion-item>
@@ -36,10 +35,10 @@
 				<div class="col col-70">
 					<h5>Total Amount</h5></div>
 				<div class="col">
-					<h5>{{totalamount}}</h5></div>
+					<h5>${{totalamount}}</h5></div>
 			</div>
 		</div>
 
-		<button class="button button-calm ionic-right" ng-click="GoToPayment()">Next</button>
+		<button class="button button-dark button-block" ng-click="GoToPayment()">Add Payment Details</button>
 	</ion-content>
 </ion-view>

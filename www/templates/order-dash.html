@@ -2,19 +2,24 @@
   <ion-nav-buttons side="right">
     <a class="button button-clear button-light" href="#/app/new-order">New Order</a>
   </ion-nav-buttons>
-  <ion-content class="padding">
+  <ion-content>
     <label class="item item-input">
       <input type="date" placeholder="Search" ng-model="vm.orderdate">
       <button class="button button-small button-icon icon ion-search" ng-click="SearchOrderbyDate()"></button>
     </label>
     <div class="list card">
       <div class="item item-divider">In Progress Orders</div>
-      <div ng-repeat="order in orders | filter:{ orderstatus: 'In Progress' }">
-        <button class="button button-block button-light" ng-click="GoToOrder(order._id)">{{order.custname}}</button>
-      </div>
+      <a class="item" ng-click="GoToOrder(order._id)" ng-repeat="order in orders | filter:{ orderstatus: 'In Progress' }">
+        <h2><strong>Name: </strong>{{order.custname}}</h2>
+        <p><strong>Order Amount:</strong> ${{order.totalamount}}</p>
+      </a>
     </div>
     <div class="list card">
       <div class="item item-divider">Completed</div>
+       <a class="item" ng-click="GoToOrder(order._id)" ng-repeat="order in orders | filter:{ orderstatus: 'Completed' }">
+        <strong>Name: </strong>{{order.custname}}
+        <p><strong>Order Amount:</strong> ${{order.totalamount}}</p>
+      </a>
       <div ng-repeat="order in orders | filter:{ orderstatus: 'Completed' }">
         <button class="button button-block button-light" ng-click="GoToOrder(order._id)">{{order.custname}}</button>
       </div>

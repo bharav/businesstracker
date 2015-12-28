@@ -17,3 +17,8 @@ form .has-success {
 
 form.ng-submitted input.ng-valid + i.icon.error {
   display: none; }
+  
+  a.item-content{
+    background-color: #444444 !important;
+    color: #fff;
+  }
