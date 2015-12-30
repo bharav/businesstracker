@@ -65,7 +65,13 @@
       if ($scope.newpurchase._id === undefined) {
         Purchases.setPurchases($scope.newpurchase).then(function (data) {
           $scope.newpurchase = null;
+          if(data.purchasestatus=="Completed")
+          {
+              $state.go('app.purchasestockupdate', {'purchaseId': data._id});
+          }
+          else{
           $state.go('app.purchase-summary', {'purchaseId': data._id});
+          }
           console.log(data);
         });
       }

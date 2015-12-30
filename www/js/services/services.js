@@ -14,6 +14,9 @@ angular.module('businesstracker.services', [])
     function getOrderlocal() {
       return orderlocal;
     }
+    function clearOrderLocal(){
+        orderlocal=null;
+    }
     //Get list of orders from server
     function getOrders() {
       var deferred = $q.defer();
@@ -109,6 +112,7 @@ angular.module('businesstracker.services', [])
       setOrderId: setOrderId,
       setOrderlocal: setOrderlocal,
       getOrderlocal: getOrderlocal,
+      clearOrderLocal:clearOrderLocal,
       getOrders: getOrders,
       setOrders: setOrders,
       updateOrder: updateOrder,

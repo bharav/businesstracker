@@ -1,0 +1,28 @@
+<ion-view view-title="Product Details" ng-controller="ProductCtrl as product">
+	<ion-content class="padding">
+		<div class="list">
+			<label class="item item-input">
+				<input type="text" placeholder="Name" ng-model="product.name">
+			</label>
+			<label class="item item-input">
+				<input type="number" placeholder="In Stock" ng-model="product.instock">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Batch" ng-model="product.batch">
+			</label>
+			<label class="item item-input">
+				<input type="number" placeholder="Cost Price" ng-model="product.currentCP"></input>
+			</label>
+			<label class="item item-input">
+				<input type="number" placeholder="Selling Price" ng-model="product.currentSP"></input>
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Category" ng-model="product.category"></input>
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Comment" ng-model="product.comment"></input>
+			</label>
+		</div>
+		<a class="button button-block button-dark" ng-click="SaveProductDetail()">Save Product</a>
+	</ion-content>
+</ion-view>

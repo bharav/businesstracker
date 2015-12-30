@@ -20,9 +20,6 @@
         <strong>Name: </strong>{{order.custname}}
         <p><strong>Order Amount:</strong> ${{order.totalamount}}</p>
       </a>
-      <div ng-repeat="order in orders | filter:{ orderstatus: 'Completed' }">
-        <button class="button button-block button-light" ng-click="GoToOrder(order._id)">{{order.custname}}</button>
-      </div>
     </div>
   </ion-content>
 </ion-view>

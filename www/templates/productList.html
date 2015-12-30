@@ -1,0 +1,12 @@
+<ion-view view-title="Purchace Stock Update" ng-controller="PurchaseStockListCtrl as vm">
+    <ion-content class="padding">
+        <div class="list">
+            <a class="item" ng-click="GoToOrder(order._id)" ng-repeat="product in products">
+                <h2><strong>Name: </strong>{{product.productname}}</h2>
+                <p><strong>Purchase Unit:</strong> ${{product.productunit}}</p>
+            </a>
+        </div>
+
+        <a class="button icon-right ion-chevron-right button-calm" href="" ng-click="GoToPurchasePrd()">Next</a>
+    </ion-content>
+</ion-view>
