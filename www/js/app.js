@@ -165,6 +165,14 @@ angular.module('businesstracker', ['ionic',
                         templateUrl: 'templates/productList.html'
                     }
                 }
+            })
+             .state('app.productdetail', {
+                url: '/productdetail/:productId',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/productdetail.html'
+                    }
+                }
             });
 
 
